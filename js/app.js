@@ -11,12 +11,12 @@ $(document).ready(function(){
       $(".overlay").fadeOut(1000);
     });
 
-        //generates random number
-        function randomNumber(min, max) {
-        return Math.floor(Math.random()*(max-min+1)+min);
-        }
-        var sysNumber = (randomNumber(1, 100));
-        alert(sysNumber); //temporary for testing
+    //generates random number
+    function randomNumber(min, max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+    }
+    var sysNumber = (randomNumber(1, 100));
+    alert(sysNumber); //temporary for testing    
 
     //calls newGame on click
     $('form').on('click', '#guessButton', function(e) {
@@ -25,41 +25,58 @@ $(document).ready(function(){
     });
 
       //on click, game starts
-      var newGame = function() {
+    var newGame = function() {
 
-        //var sysNumber = 100; //for testing - to be removed
+        //gets temperature of user's guess
+        var temperature = function() {
 
-        //gets userNumber
-        var userNumber = $('#userGuess').val();
+            //gets userNumber
+            var userNumber = $('#userGuess').val();
 
-        //finds diff
-        var diff = Math.abs(userNumber - sysNumber);
+            //appends user guess to #guesslist
+            $('#guessList').append("<span>" + userNumber + ", " + "</span>");
 
-        // compares userNumber to sysNumber
-        if (diff === 0) {
-            alert('BINGO!');
-        }
-        else if (diff >= 70) {
-            alert('Ice Cold');
-        }
-        else if (diff >= 50) {
-            alert('Cold');
-        }   
-        else if (diff >= 30) {
-            alert('Warm');
-        }                     
-        else if (diff >= 20) {
-            alert('Hot');
-        }
-        else if (diff >= 10) {
-            alert('Very Hot');
-        }
-        
-        //appends user guess to #guesslist
+            //counts user guesses
+            var guessNumber = [];
+            $("#guessList").find("span").each(function(){
+                guessNumber.push($(this).html());
+            });
 
-        //counts user guesses and logs to span#count
+            //logs # of user guesses to span#count
+            $('#count').empty();
+            $('#count').append(guessNumber.length);
 
-    };
+
+            //finds diff
+            var diff = Math.abs(userNumber - sysNumber);
+
+            // compares userNumber to sysNumber
+            if (diff === 0) {
+                return('BINGO!');
+            }
+            else if (diff >= 70) {
+                return('Ice Cold');
+            }
+            else if (diff >= 50) {
+                return('Cold');
+            }   
+            else if (diff >= 30) {
+                return('Warm');
+            }                     
+            else if (diff >= 20) {
+                return('Hot');
+            }
+            else if (diff >= 10 || diff < 10) {
+                return('Very Hot');
+            }
+        };
+
+        //displays temperature of user's guess
+        $("#feedback").html(temperature);    
+
+
+
+};
 
 
 });
