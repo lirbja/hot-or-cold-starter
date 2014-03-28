@@ -19,11 +19,8 @@ $(document).ready(function(){
         alert(sysNumber); //temporary for testing
 
     //calls newGame on click
-    $('form').on('click', '#guessButton', function() {
-          //
-          $('form').submit(function(e) {
-            e.preventDefault(); 
-          });
+    $('form').on('click', '#guessButton', function(e) {
+          e.preventDefault();
           newGame();
     });
 
