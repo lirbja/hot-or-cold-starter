@@ -11,23 +11,24 @@ $(document).ready(function(){
       $(".overlay").fadeOut(1000);
     });
 
-
+        //generates random number
         function randomNumber(min, max) {
         return Math.floor(Math.random()*(max-min+1)+min);
         }
-
         var sysNumber = (randomNumber(1, 100));
+        alert(sysNumber); //temporary for testing
 
-        alert(sysNumber);
-        
     //calls newGame on click
     $('form').on('click', '#guessButton', function() {
+          //
+          $('form').submit(function(e) {
+            e.preventDefault(); 
+          });
           newGame();
     });
 
       //on click, game starts
       var newGame = function() {
-        //generates random number
 
         //var sysNumber = 100; //for testing - to be removed
 
@@ -37,25 +38,25 @@ $(document).ready(function(){
         //finds diff
         var diff = Math.abs(userNumber - sysNumber);
 
-        //compares userNumber to sysNumber
-        // if (diff === 0) {
-        //     alert('BINGO!');
-        // }
-        // else if (diff >= 70) {
-        //     alert('Ice Cold');
-        // }
-        // else if (diff >= 50) {
-        //     alert('Cold');
-        // }   
-        // else if (diff >= 30) {
-        //     alert('Warm');
-        // }                     
-        // else if (diff >= 20) {
-        //     alert('Hot');
-        // }
-        // else if (diff >= 10) {
-        //     alert('Very Hot');
-        // }
+        // compares userNumber to sysNumber
+        if (diff === 0) {
+            alert('BINGO!');
+        }
+        else if (diff >= 70) {
+            alert('Ice Cold');
+        }
+        else if (diff >= 50) {
+            alert('Cold');
+        }   
+        else if (diff >= 30) {
+            alert('Warm');
+        }                     
+        else if (diff >= 20) {
+            alert('Hot');
+        }
+        else if (diff >= 10) {
+            alert('Very Hot');
+        }
         
         //appends user guess to #guesslist
 
