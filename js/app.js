@@ -11,6 +11,15 @@ $(document).ready(function(){
       $(".overlay").fadeOut(1000);
     });
 
+
+        function randomNumber(min, max) {
+        return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        var sysNumber = (randomNumber(1, 100));
+
+        alert(sysNumber);
+        
     //calls newGame on click
     $('form').on('click', '#guessButton', function() {
           newGame();
@@ -19,13 +28,6 @@ $(document).ready(function(){
       //on click, game starts
       var newGame = function() {
         //generates random number
-        function randomNumber(min, max) {
-        return Math.floor(Math.random()*(max-min+1)+min);
-        }
-
-        var sysNumber = (randomNumber(1, 100));
-
-        alert(sysNumber);
 
         //var sysNumber = 100; //for testing - to be removed
 
