@@ -86,6 +86,9 @@ $(document).ready(function(){
             // displays temperature of user's guess
             $("#feedback").html(temperature);    
         }
+
+        //clears user input field
+        $('#userGuess').val('');
     };
 
 
