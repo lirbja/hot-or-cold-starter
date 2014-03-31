@@ -6,8 +6,6 @@
 
 * Clicking "New Game" doesn't start a new game
 
-* User's input field is not cleared after user clicks Submit
-
 * Hotter vs Colder:
 	- if diff between last guess and sysNumber is smaller than diff between second-to-last guess and sysNumber, then hotter
 	- if diff between last guess and sysNumber is greater than diff between second-to-last guess and sysNumber, then colder

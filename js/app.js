@@ -20,6 +20,10 @@ $(document).ready(function(){
     //calls newGame on click
     $('form').on('click', '#guessButton', function(e) {
           e.preventDefault();
+
+          //checks if user already won the game
+          //???
+          
           newGame();
     });
 
