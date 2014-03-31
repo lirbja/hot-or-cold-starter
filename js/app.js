@@ -3,7 +3,6 @@ $(document).ready(function(){
   /*--- Display information modal box ---*/
     $(".what").click(function(){
       $(".overlay").fadeIn(1000);
-
     });
 
     /*--- Hide information modal box ---*/
@@ -27,13 +26,24 @@ $(document).ready(function(){
       //on click, game starts
     var newGame = function() {
 
-        //gets temperature of user's guess
-        var temperature = function() {
+        //gets userNumber
+        var userNumber = parseInt($("#userGuess").val(),10);
 
-            //gets userNumber
-            var userNumber = $('#userGuess').val();
+        //checks for validity of userNumber
+        var isValid;
 
-            //appends user guess to #guesslist
+        if (userNumber < 1 || userNumber > 100 || isNaN(userNumber)) {
+            isValid = 0;
+            alert("Please enter a number between 0 and 100.");
+        }
+        else {
+            isValid = 1;
+        }
+
+        //does below actions only for valid guesses
+        if (isValid === 1) {
+
+            //appends user guesses to #guesslist
             $('#guessList').append("<span>" + userNumber + ", " + "</span>");
 
             //counts user guesses
@@ -46,37 +56,37 @@ $(document).ready(function(){
             $('#count').empty();
             $('#count').append(guessNumber.length);
 
+            // gets temperature of user's guess
+            var temperature = function() {
 
-            //finds diff
-            var diff = Math.abs(userNumber - sysNumber);
+                //finds diff
+                var diff = Math.abs(userNumber - sysNumber);
 
-            // compares userNumber to sysNumber
-            if (diff === 0) {
-                return('BINGO!');
-            }
-            else if (diff >= 70) {
-                return('Ice Cold');
-            }
-            else if (diff >= 50) {
-                return('Cold');
-            }   
-            else if (diff >= 30) {
-                return('Warm');
-            }                     
-            else if (diff >= 20) {
-                return('Hot');
-            }
-            else if (diff >= 10 || diff < 10) {
-                return('Very Hot');
-            }
-        };
+                // compares userNumber to sysNumber
+                if (diff === 0) {
+                    return('BINGO!');
+                }
+                else if (diff >= 70) {
+                    return('Ice Cold');
+                }
+                else if (diff >= 50) {
+                    return('Cold');
+                }   
+                else if (diff >= 30) {
+                    return('Warm');
+                }                     
+                else if (diff >= 20) {
+                    return('Hot');
+                }
+                else if (diff >= 10 || diff < 10) {
+                    return('Very Hot');
+                }
+            };
 
-        //displays temperature of user's guess
-        $("#feedback").html(temperature);    
-
-
-
-};
+            // displays temperature of user's guess
+            $("#feedback").html(temperature);    
+        }
+    };
 
 
 });
