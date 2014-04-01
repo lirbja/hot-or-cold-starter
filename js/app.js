@@ -19,12 +19,12 @@ $(document).ready(function(){
 
     //calls newGame on click
     $('form').on('click', '#guessButton', function(e) {
-          e.preventDefault();
 
-          //checks if user already won the game
-          //???
-          
-          newGame();
+        //prevents random number from being generated again
+        e.preventDefault();       
+
+        //starts new game
+        newGame();
     });
 
       //on click, game starts
@@ -60,11 +60,11 @@ $(document).ready(function(){
             $('#count').empty();
             $('#count').append(guessNumber.length);
 
+            //finds diff
+            var diff = Math.abs(userNumber - sysNumber);
+
             // gets temperature of user's guess
             var temperature = function() {
-
-                //finds diff
-                var diff = Math.abs(userNumber - sysNumber);
 
                 // compares userNumber to sysNumber
                 if (diff === 0) {
@@ -88,11 +88,23 @@ $(document).ready(function(){
             };
 
             // displays temperature of user's guess
-            $("#feedback").html(temperature);    
+            $("#feedback").html(temperature);   
+            // if (diff === 0) {
+            //     // $("#userGuess").attr('disabled','disabled');
+            //     alert("diff is 0");
+            // }
         }
 
-        //clears user input field
-        $('#userGuess').val('');
+        //disables input field if diff is 0
+        if (diff === 0) {
+            $("#userGuess").prop('disabled', true);
+        } 
+
+        //otherwise - clears user input field
+        else {
+            $('#userGuess').val('');
+        }        
+    
     };
 
 
