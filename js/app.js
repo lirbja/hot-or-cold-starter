@@ -27,6 +27,17 @@ $(document).ready(function(){
         newGame();
     });
 
+        //  ???????   //restart game on clicking New Game
+        // $('nav').on('click', '.new', function() {
+        //     // alert('haha');
+        //     $("#count").html('0');
+        //     $("#feedback").html('Make your Guess!');
+        //     $("#guessList").empty();
+        //     $("#userGuess").prop('disabled', false).val('');
+        //     sysNumber = (randomNumber(1, 100));
+        //     alert(sysNumber); //temporary for testing
+        // });
+
       //on click, game starts
     var newGame = function() {
 
@@ -89,15 +100,12 @@ $(document).ready(function(){
 
             // displays temperature of user's guess
             $("#feedback").html(temperature);   
-            // if (diff === 0) {
-            //     // $("#userGuess").attr('disabled','disabled');
-            //     alert("diff is 0");
-            // }
         }
 
         //disables input field if diff is 0
         if (diff === 0) {
             $("#userGuess").prop('disabled', true);
+            $("#guessButton").prop('disabled', true);
         } 
 
         //otherwise - clears user input field

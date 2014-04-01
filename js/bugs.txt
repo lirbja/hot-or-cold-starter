@@ -4,12 +4,15 @@
 
 1) newGame() is starting on click of a button, rather than page load
 	(newGame should start on document.ready)
-		(generating sysNumber should start on document.ready and not repeat itself)
+		(generating sysNumber should start on document.ready and not repeat itself) --> DONE
 	(storing user guess should happen on button click)
 		(providing feedback should happen on button click)
 		(storing guess should happen on button click)
 		(error handling should happen on button click)
 		(counting # of user guesses should happen on button click)
+
+	--> maybe incorporate resetting count, feedback, and guessList elements as part of newGame()
+	--> then just call newGame() again if "New Game" button is clicked?
 
 2) user is being allowed to guess the same guess more than once
 
