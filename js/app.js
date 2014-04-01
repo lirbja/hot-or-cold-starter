@@ -10,6 +10,11 @@ $(document).ready(function(){
       $(".overlay").fadeOut(1000);
     });
 
+    //restart game on clicking New Game
+    $( ".new" ).click(function() {
+        location.reload(true);
+    });
+
     //generates random number
     function randomNumber(min, max) {
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -27,18 +32,7 @@ $(document).ready(function(){
         newGame();
     });
 
-        //  ???????   //restart game on clicking New Game
-        // $('nav').on('click', '.new', function() {
-        //     // alert('haha');
-        //     $("#count").html('0');
-        //     $("#feedback").html('Make your Guess!');
-        //     $("#guessList").empty();
-        //     $("#userGuess").prop('disabled', false).val('');
-        //     sysNumber = (randomNumber(1, 100));
-        //     alert(sysNumber); //temporary for testing
-        // });
-
-      //on click, game starts
+    //on guessButton click, game evaluates userNumber against sysNumber
     var newGame = function() {
 
         //gets userNumber
