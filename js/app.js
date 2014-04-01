@@ -53,13 +53,15 @@ $(document).ready(function(){
         if (isValid === 1) {
 
             //appends user guesses to #guesslist
-            $('#guessList').append("<span>" + userNumber + ", " + "</span>");
+            $('#guessList').append("<span>" + userNumber + " </span>");
 
             //counts user guesses
             var guessNumber = [];
             $("#guessList").find("span").each(function(){
                 guessNumber.push($(this).html());
             });
+
+            alert(guessNumber);        
 
             //logs # of user guesses to span#count
             $('#count').empty();
@@ -107,7 +109,7 @@ $(document).ready(function(){
             $('#userGuess').val('');
         }        
     
-    };
+    }; //ends newGame function
 
 
 });
