@@ -1,8 +1,8 @@
 //BUGS////////////
 
-1) user is being allowed to keep playing even if user already won
 
-2) newGame() is starting on click of a button, rather than page load
+
+1) newGame() is starting on click of a button, rather than page load
 	(newGame should start on document.ready)
 		(generating sysNumber should start on document.ready and not repeat itself)
 	(storing user guess should happen on button click)
@@ -11,10 +11,10 @@
 		(error handling should happen on button click)
 		(counting # of user guesses should happen on button click)
 
-3) user is being allowed to guess the same guess more than once
+2) user is being allowed to guess the same guess more than once
 
-4) clicking New Game is not triggering the newGame function that starts the game
+3) clicking New Game is not triggering the newGame function that starts the game
 
-5) hotter and colder functionality is not there
+4) hotter and colder functionality is not there
 	(if the difference between their last guess and the sysNumber is less than the difference between their second-to-last guess and the sysNumber, then say 'hotter')
 	(if the difference between their last guess and the sysNumber is less than the difference between their second-to-last guess and the sysNumber, then say 'colder')
